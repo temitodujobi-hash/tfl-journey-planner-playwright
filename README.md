@@ -48,7 +48,36 @@ UIAutomationTests
 ├── Steps
 │   └── JourneyPlannerSteps.cs
 │
+├── Test.runsettings
+│
 └── UIAutomationTests.csproj
+```
+
+---
+
+## Configuration
+
+The application URL is externalised into a Run Settings file rather than being hard-coded within the automation framework.
+
+This approach provides several benefits:
+
+- Supports environment-specific execution
+- Avoids hard-coded URLs
+- Improves maintainability
+- Allows configuration changes without source code modifications
+
+Example:
+
+```xml
+<TestRunParameters>
+  <Parameter name="BaseUrl" value="https://tfl.gov.uk" />
+</TestRunParameters>
+```
+
+The framework reads the `BaseUrl` value at runtime and uses it when navigating to the application.
+
+
+
 ```
 
 ### Features
@@ -268,17 +297,54 @@ playwright install
 
 ## Running the Tests
 
-Run all tests from Visual Studio:
+### Prerequisites
+
+- .NET 8
+- Visual Studio 2022
+- Playwright
+
+Install Playwright browsers:
+
+```bash
+playwright install
+```
+
+### Configure Test Settings
+
+Ensure the Run Settings file is selected before executing the tests:
+
+```text
+Test
+→ Configure Run Settings
+→ Select Solution Wide RunSettings File
+```
+
+Select:
+
+```text
+Test.runsettings
+```
+
+### Execute via Visual Studio
 
 ```text
 Test Explorer
 → Run All Tests
 ```
 
-Or via command line:
+### Execute via Command Line
+
+Run all tests:
 
 ```bash
 dotnet test
+```
+
+Or execute using the Run Settings file:
+
+```bash
+dotnet test --settings Test.runsettings
+```
 ```
 
 ---
