@@ -1,0 +1,25 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Test Results
+TestResults/
+*.trx
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Screenshots, Videos, Traces
+screenshots/
+videos/
+traces/
+
+# Logs
+*.log
