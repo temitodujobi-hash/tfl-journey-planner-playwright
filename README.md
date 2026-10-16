@@ -48,7 +48,7 @@ UIAutomationTests
 ├── Steps
 │   └── JourneyPlannerSteps.cs
 │
-├── Test.runsettings
+├── test.runsettings
 │
 └── UIAutomationTests.csproj
 ```
@@ -252,7 +252,7 @@ Example:
 await AcceptCookiesButton.WaitForAsync(new()
 {
     State = WaitForSelectorState.Visible,
-    Timeout = 3000
+    Timeout = 5000
 });
 ```
 
@@ -283,8 +283,8 @@ Locators were refined to target the appropriate journey card while maintaining P
 
 ## Prerequisites
 
-- .NET 8
-- Visual Studio 2022
+- .NET 9
+- Visual Studio 2022+
 - Playwright
 
 Install Playwright browsers:
@@ -293,21 +293,7 @@ Install Playwright browsers:
 playwright install
 ```
 
----
 
-## Running the Tests
-
-### Prerequisites
-
-- .NET 8
-- Visual Studio 2022
-- Playwright
-
-Install Playwright browsers:
-
-```bash
-playwright install
-```
 
 ### Configure Test Settings
 
@@ -322,7 +308,7 @@ Test
 Select:
 
 ```text
-Test.runsettings
+test.runsettings
 ```
 
 ### Execute via Visual Studio
@@ -343,11 +329,8 @@ dotnet test
 Or execute using the Run Settings file:
 
 ```bash
-dotnet test --settings Test.runsettings
+dotnet test --settings test.runsettings
 ```
-```
-
----
 
 ## Use of AI
 
